@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .overlay{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: #00000080;
+        display: none;
+       }
+       .overlay .popup{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 100px;
+        background: #fff;
+        padding: 10px;
+       }
+       .overlay .popup .close{
+        position: absolute;
+        top: -30px;
+        right: -30px;
+       }
+    </style>
+</head>
+<body>
+    
+   <button class="open">
+    Open popup window
+   </button> 
+   <div class="overlay">
+       <div class="popup">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+        Nihil exercitationem ullam, eos modi sed neque.
+        <button class="close">X</button>
+       </div>
+   </div>
+   <script>
+        const openBtn = document.querySelector('.open')
+
+        const closeOpenHandler = (display) => {
+            const overlay = document.querySelector('.overlay');
+            overlay.style.display = display
+        }
+        openBtn.addEventListener('click', (e) => {
+            console.log(e);
+            closeOpenHandler('block')
+        })
+
+        const closeBtn = document.querySelector('.close');
+
+        closeBtn.addEventListener('click', () => {
+            closeOpenHandler('none')
+        });
+
+        window.addEventListener('keypress', (e) => {
+            console.log(e)
+        })
+   </script> 
+</body>
+</html>
