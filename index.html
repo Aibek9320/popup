@@ -51,20 +51,39 @@
             const overlay = document.querySelector('.overlay');
             overlay.style.display = display
         }
-        openBtn.addEventListener('click', (e) => {
-            console.log(e);
+        openBtn.addEventListener('click', () => {
+            console.log();
             closeOpenHandler('block')
         })
 
         const closeBtn = document.querySelector('.close');
 
-        closeBtn.addEventListener('click', () => {
+        closeBtn.addEventListener('click', (e) => {
             closeOpenHandler('none')
         });
 
-        window.addEventListener('keypress', (e) => {
-            console.log(e)
+        window.addEventListener('keydown', (e) => {
+            if(e.key==='Escape'){
+                closeOpenHandler('none')
+            }
+            if(e.key === 'Enter'){
+                closeOpenHandler('block')
+            }
+        // window.addEventListener('click', (e) => {
+        //     console.log(e)
+        //     if(e.click === overlay){
+        //         closeOpenHandler('none')
+        //     }
+        // })
+        window.addEventListener('click', (e) => {
+            const overlay = document.querySelector('.overlay');
+            if(e.target === overlay){
+                closeOpenHandler('none')
+             }
+         })
         })
+        // const overlay = document.querySelector('.overlay');
+        // console.log(overlay)
    </script> 
 </body>
 </html>
